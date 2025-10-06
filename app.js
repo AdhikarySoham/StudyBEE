@@ -65,14 +65,6 @@ const sessionOptions={
 };
 
 
-
-
-app.get("/",async (req,res)=>{
-    const studyunits=await StudyUnit.find({}).populate("owner");
-    res.render("studyunits/index.ejs",{studyunits});
-});
-
-
 app.use(session(sessionOptions)); 
 app.use(flash());  // We have to use flash before the routes
 
@@ -89,6 +81,10 @@ app.use((req, res, next) => {
     next(); 
 });
 
+app.get("/",async (req,res)=>{
+    const studyunits=await StudyUnit.find({}).populate("owner");
+    res.render("studyunits/index.ejs",{studyunits});
+});
 
 
 passport.serializeUser(User.serializeUser());
