@@ -1,0 +1,15 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"Edit Topic: ")%>
+<body>
+    <h3>Edit your notes</h3>
+    <form method="post" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>/?_method=PUT">
+        <div>
+            <h3><%= topic.title %></h3>
+        </div>
+        <div>
+            <label for="notes" class="form-label">Notes:</label>
+            <textarea id="notes" name="notes" rows="5" cols="70" class="form-control"><%= topic.notes %></textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Done</button>
+</body>

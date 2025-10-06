@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"Quiz: ")%>
+
+<h2>Quiz for <%= topic.title %></h2>
+
+<form action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>/submit" method="POST">
+    <% quizData.questions.forEach((question, index) => { %>
+        <div class="question">
+            <p><strong>Question <%= index + 1 %>:</strong> <%= question.question %></p>
+            <% question.options.forEach((option, i) => { %>
+                <label>
+                    <input type="radio" name="answer_<%= index %>" value="<%= option %>" required>
+                    <%= option %>
+                </label><br><br>
+            <% }) %>
+            <!-- Store correct answer in hidden field -->
+            <input type="hidden" name="answer<%= index %>" value="<%= question.answer %>">
+        </div>
+    <% }) %>
+    <button type="submit">Submit Quiz</button>  
+</form>   

@@ -1,0 +1,53 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"Home: ")%>
+
+
+    
+    
+
+    <% if (!currUser) { %>
+  <div class="d-flex flex-column justify-content-center align-items-center my-5">
+    <h1 class="display-4 fw-bold mb-2">
+      <span class="text-dark fw-bold">Study</span>
+      <span style="color: #ebb70a; font-weight: bold;">Bee</span>
+    </h1>
+    <p class="lead text-secondary text-dark text-center" style="max-width: 400px; font-weight: 400;">
+      Plans, revise and buzz through exams
+    </p>
+  </div>
+<% } %>
+
+  <% if(currUser){ %>
+    <h3 class="mb-4 text-center">All Study Units</h3>
+    <% } %>
+   
+    <div class="studyunit_row">
+        <%  for(let studyunit of studyunits){ %>
+        <%if(currUser && currUser._id.equals(studyunit.owner._id)){ %>
+        <div class="studyunits card shadow-sm mb-4">
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="/studyunits/<%= studyunit._id %>" class="text-decoration-none text-primary" >
+                        <%= studyunit.sub_name %>
+                    </a>
+                </h4> 
+                <p class="card-text"><%= studyunit.description %></p>
+                <p class="text-muted mb-1">Created At: <%= studyunit.createdAt.toDateString() %></p>
+                <p class="text-muted">Updated At: <%= studyunit.updatedAt.toDateString() %></p>
+               <form method="post" action="/studyunits/<%= studyunit._id %>?_method=DELETE">
+                  <button class="btn btn-outline-danger btn-sm">Delete</button>
+               </form>
+            </div>
+        </div>
+        <% } %>
+       <%  } %>
+    </div>
+      
+    <br>
+    <form method="get" action="/studyunits/new_studyunit">
+        <button class="btn btn-outline-primary">Add New Study Unit</button>
+    </form>
+
+
+
+

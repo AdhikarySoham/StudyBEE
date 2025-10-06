@@ -1,0 +1,16 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"New Studyunit: ")%>
+<body>
+    <h2>Add New Studyunit</h2>
+    <form method="post" action="/studyunits">
+        <div class="mb-3">
+            <label for="sub_name" class="form-label">Subject Name:</label>
+            <input type="text" id="sub_name" name="sub_name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description:</label>
+            <textarea id="description" name="description" placeholder="Add description" rows="5" cols="50" class="form-control"></textarea>
+        </div>
+        <button class="btn btn-primary">Create Studyunit</button>
+    </form>
+</body>

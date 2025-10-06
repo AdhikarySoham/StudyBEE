@@ -1,0 +1,97 @@
+.main-bg {
+    background-color: #f5e6ff; /* your desired color */
+    min-height: 100vh;
+    padding-top: 2rem; /* optional: space below navbar */
+}
+
+.navbar{
+    height: 5rem;
+}
+
+.fa-note-sticky{
+    color: rgb(22, 213, 89);
+  
+}
+
+.studyunits {
+    border: 1px solid #00000000;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    height:240px;
+    width: 280px;
+    box-shadow: inset 0 0 10px rgba(15, 18, 173, 0.1);
+    background-color: #eff0f5dc
+}
+
+.studyunits a{
+    text-decoration: none;
+    color: #2f2cf5;
+}   
+
+.topics a {
+    text-decoration: none;
+}
+
+.studyunit_row{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px; /* space between cards */
+    justify-content: flex-start; /* or center */
+}
+
+.studyunits.card {
+    width: 320px;
+    border-radius: 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    margin-bottom: 1rem;
+}
+
+.studyunits.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(80, 80, 200, 0.12);
+}
+
+.card-header h4 {
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-title {
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-title a {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.card-text {
+    min-height: 48px;
+}
+
+.table th, .table td {
+    vertical-align: middle !important;
+}
+
+.badge {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+}
+
+.container {
+    padding-bottom: 3rem;
+}
+
+.topic-card {
+    border-radius: 1.5rem;
+    background: #fff9fc;
+    transition: box-shadow 0.2s;
+}
+.topic-card:hover {
+    box-shadow: 0 8px 32px rgba(80, 80, 200, 0.15);
+}
+.bg-light {
+    background-color: #f8f9fa !important;
+}

@@ -1,0 +1,53 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"Topic: ")%>
+  
+<div class="container my-5">
+  <div class="card shadow-lg topic-card">
+    <div class="card-body">
+      <h2 class="card-title text-center mb-4"><%= topic.title %></h2>
+      <div class="d-flex justify-content-end mb-3">
+        <form method="get" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>/quiz">
+          <button class="btn btn-primary">Generate Quiz</button>
+        </form>
+        <form method="get" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>/edit" class="ms-2">
+          <button class="btn btn-warning">Edit Topic</button>
+        </form>
+      </div>
+      <hr>
+      <div class="mb-4">
+        <h4>Notes</h4>
+        <div class="bg-light p-3 rounded"><%= topic.notes %></div>
+      </div>
+      
+      <div class="mb-4">
+        <h4>Resources:</h4>
+        <ul class="list-group">
+         <% for(let resource of topic.resources){ %>
+         <li class="list-group-item">
+           <a href="<%= resource.url %>" target="_blank"><%= resource.url %></a>
+         </li>
+         <% } %>
+       </ul>
+      </div>
+      <div class="mb-4">
+        <h4>Videos:</h4>
+        <ul class="list-group">
+          <% for(let video of topic.videos){ %>
+           <li class="list-group-item">
+             <a href="<%= video %>" target="_blank"><%= video%></a>
+           </li>
+         <% } %>
+        </ul>
+      </div>
+        <form method="post" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>?_method=DELETE" class="text-end">
+          <button class="btn btn-outline-danger btn-sm">Delete Topic</button>
+        </form>
+    </div>
+  </div>
+</div>
+
+
+
+ 
+
+ 

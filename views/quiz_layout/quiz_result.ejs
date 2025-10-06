@@ -1,0 +1,19 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"Quiz Summary: ")%>
+
+<div class="quiz-result">
+    <h2>Quiz Summary for <%= topic.title %></h2>
+    <h3>score is <%= score %> out of <%= total %></h3>
+    <h3>Percentage: <%= ((score / total) * 100).toFixed(2) %></h3>
+    <br>
+    <form method="post" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>/review">
+        <input type="hidden" name="studyunitID" value="<%= studyunit._id %>" >
+        <input type="hidden" name="topicId" value="<%= topic._id %>">
+        <input type="hidden" name="quizScore" value="<%= ((score / total) * 100).toFixed(2) %>" >
+        <button>Update review</button>
+    </form>
+    <br><br>
+     <form method="get" action="/studyunits/<%= studyunit._id %>/topics/<%= topic._id %>" >
+        <button>Close</button>  
+    </form>
+</div>

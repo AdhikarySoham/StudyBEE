@@ -1,0 +1,26 @@
+<% layout("layouts/boilerplate") %>
+<% block('title',"New Topic: ")%>
+<body>
+    <h2>Create a New Topic</h2>
+    <form method="post" action="/studyunits/<%= studyunit._id %>">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title:</label>
+            <input type="text" id="title" name="title" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="notes" class="form-label">Notes:</label>
+            <textarea id="notes" name="notes" placeholder="Add notes" rows="5" cols="50" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="resources" class="form-label">Resources:</label>
+            <input type="text" id="resources" name="resources" placeholder="Add resource URLs, separated by commas" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="videos" class="form-label">Video's Link:</label>
+            <input type="text" id="videos" name="videos" placeholder="Add video URLs, separated by commas" class="form-control">
+        </div>
+        <br>
+        <button class="btn btn-primary">Create Topic</button>
+
+    </form>
+</body>
