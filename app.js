@@ -67,8 +67,9 @@ const sessionOptions={
 
 
 
-app.get("/",(req,res)=>{
-    res.render("studyunits/index.ejs");
+app.get("/",async (req,res)=>{
+    const studyunits=await StudyUnit.find({}).populate("owner");
+    res.render("studyunits/index.ejs",{studyunits});
 });
 
 
